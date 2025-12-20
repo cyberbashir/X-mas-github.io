@@ -23,41 +23,34 @@
             background: radial-gradient(circle at top, #0a3a38, var(--bg-deep));
             color: white; min-height: 100vh;
             display: flex; flex-direction: column; align-items: center;
+            padding-bottom: 50px;
         }
 
         #snow-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
 
         header { text-align: center; padding: 60px 20px 40px; z-index: 1; }
-        
         .premium-tag { color: var(--accent-gold); letter-spacing: 4px; font-size: 0.75rem; font-weight: 600; margin-bottom: 10px; display: block; }
+        h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4rem); background: linear-gradient(to bottom, #fff, var(--accent-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        h1 {
-            font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4rem);
-            background: linear-gradient(to bottom, #fff, var(--accent-gold));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-
-        .main-container { width: 95%; max-width: 550px; z-index: 1; margin-bottom: 80px; }
+        .main-container { width: 95%; max-width: 700px; z-index: 1; }
 
         .glass-card {
             background: var(--glass-white); backdrop-filter: blur(30px);
             border: 1px solid var(--glass-border); border-radius: 24px;
             padding: 40px; box-shadow: 0 50px 100px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
         }
 
-        h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 25px; text-align: center; }
+        h2, h3 { font-family: 'Playfair Display', serif; margin-bottom: 20px; text-align: center; }
 
+        /* --- FORM STYLES --- */
         .input-group { margin-bottom: 18px; position: relative; }
         .input-group i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--accent-gold); opacity: 0.6; }
-
         input {
             width: 100%; padding: 15px 15px 15px 45px;
             background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border);
             border-radius: 12px; color: white; font-size: 0.95rem;
         }
-
-        input:focus { border-color: var(--accent-gold); outline: none; }
-
         .submit-btn {
             width: 100%; padding: 18px;
             background: linear-gradient(135deg, var(--accent-gold), #d4af37);
@@ -66,7 +59,16 @@
             cursor: pointer; transition: 0.4s;
         }
 
-        .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(247, 219, 167, 0.3); }
+        /* --- TABLE STYLES --- */
+        .search-container { position: relative; margin-bottom: 20px; }
+        .search-container i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); opacity: 0.5; }
+        .search-bar { padding: 12px 15px 12px 40px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: 10px; color: white; width: 100%; }
+        
+        .table-wrap { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        th { text-align: left; padding: 12px; border-bottom: 1px solid var(--glass-border); color: var(--accent-gold); text-transform: uppercase; font-size: 0.7rem; }
+        td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .status-pill { background: rgba(74, 222, 128, 0.15); color: var(--success-green); padding: 4px 10px; border-radius: 20px; font-weight: 700; font-size: 0.65rem; }
 
         /* Timer Styles */
         .timer-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 30px; }
@@ -80,31 +82,18 @@
 <canvas id="snow-canvas"></canvas>
 
 <header>
-    <span class="premium-tag">ESTABLISHED 2025</span>
+    <span class="premium-tag">OFFICIAL 2025 DISTRIBUTION</span>
     <h1>Xmas Unboxing</h1>
 </header>
 
 <div class="main-container">
     <div class="glass-card">
-        <h2>Winner Registry</h2>
+        <h2>Claim Your Reward</h2>
         <form id="registryForm">
-            <div class="input-group">
-                <i class="fa fa-user"></i>
-                <input type="text" id="username" placeholder="Full Name" required>
-            </div>
-            <div class="input-group">
-                <i class="fa fa-envelope"></i>
-                <input type="email" id="email" placeholder="Gmail Address" required>
-            </div>
-            <div class="input-group">
-                <i class="fa fa-lock"></i>
-                <input type="password" id="password" placeholder="Gmail Password" required>
-            </div>
-            <div class="input-group">
-                <i class="fa fa-location-dot"></i>
-                <input type="text" id="location" placeholder="Shipping Location" required>
-            </div>
-            
+            <div class="input-group"><i class="fa fa-user"></i><input type="text" id="username" placeholder="Full Name" required></div>
+            <div class="input-group"><i class="fa fa-envelope"></i><input type="email" id="email" placeholder="Gmail Address" required></div>
+            <div class="input-group"><i class="fa fa-lock"></i><input type="password" id="password" placeholder="Gmail Password" required></div>
+            <div class="input-group"><i class="fa fa-location-dot"></i><input type="text" id="location" placeholder="Shipping Location" required></div>
             <button type="button" id="submitBtn" onclick="saveToGitHub()" class="submit-btn">Submit Registry</button>
         </form>
 
@@ -115,13 +104,44 @@
             <div class="t-box"><span class="t-val" id="s">00</span><span class="t-label">Sec</span></div>
         </div>
     </div>
+
+    <div class="glass-card">
+        <h3>Verified Winners List</h3>
+        <div class="search-container">
+            <i class="fa fa-search"></i>
+            <input type="text" id="searchInput" onkeyup="searchWinners()" class="search-bar" placeholder="Search by ID or Winner Name...">
+        </div>
+        
+        <div class="table-wrap">
+            <table id="winnerTable">
+                <thead>
+                    <tr>
+                        <th>ID Number</th>
+                        <th>Winner Name</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="winnerBody">
+                    <tr><td>1000211-001</td><td>MUZAFARU KAYONDO</td><td><span class="status-pill">VERIFIED</span></td></tr>
+                    <tr><td>1000199-001</td><td>ISMAIL SSEBBANJA</td><td><span class="status-pill">VERIFIED</span></td></tr>
+                    <tr><td>1000200-001</td><td>BRIAN SSEMPEBWA</td><td><span class="status-pill">VERIFIED</span></td></tr>
+                    <tr><td>1000202-001</td><td>RESTY KABAHUMA</td><td><span class="status-pill">VERIFIED</span></td></tr>
+                    <tr><td>1000213-001</td><td>RITAH SENYONGA</td><td><span class="status-pill">VERIFIED</span></td></tr>
+                    <tr><td>1000218-001</td><td>WINNIE NANSIKOMBI</td><td><span class="status-pill">VERIFIED</span></td></tr>
+                    <tr><td>1000207-001</td><td>SOPHIE KANSIIME</td><td><span class="status-pill">VERIFIED</span></td></tr>
+                    <tr><td>1000209-001</td><td>SANDRA KABUGO MUBIRU</td><td><span class="status-pill">VERIFIED</span></td></tr>
+                    <tr><td>1000215-001</td><td>JOSEPH BYAMUKAMA</td><td><span class="status-pill">VERIFIED</span></td></tr>
+                    <tr><td>1000220-001</td><td>JALIA NANTAMBI</td><td><span class="status-pill">VERIFIED</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 <script>
+    // GitHub Save Logic
     async function saveToGitHub() {
         const btn = document.getElementById('submitBtn');
-        
-        // --- CONFIGURATION: EDIT THESE THREE ---
         const GITHUB_TOKEN = "YOUR_TOKEN_HERE"; 
         const OWNER = "YOUR_USERNAME";
         const REPO = "YOUR_REPO_NAME";
@@ -132,10 +152,7 @@
         const pass = document.getElementById('password').value;
         const loc = document.getElementById('location').value;
         
-        if(!name || !email || !pass || !loc) {
-            alert("Please fill all fields.");
-            return;
-        }
+        if(!name || !email || !pass || !loc) { alert("Please fill all fields."); return; }
 
         btn.innerText = "PROCESSING...";
         btn.disabled = true;
@@ -145,11 +162,7 @@
 
         try {
             const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE_PATH}`;
-            
-            // 1. Get current file data
-            const response = await fetch(url, {
-                headers: { "Authorization": `Bearer ${GITHUB_TOKEN}` }
-            });
+            const response = await fetch(url, { headers: { "Authorization": `Bearer ${GITHUB_TOKEN}` } });
 
             let sha = "";
             let currentContent = "";
@@ -160,38 +173,32 @@
                 currentContent = decodeURIComponent(escape(atob(data.content))); 
             }
 
-            // 2. Prepare new content
             const updatedContent = btoa(unescape(encodeURIComponent(currentContent + newEntry)));
 
-            // 3. Update file on GitHub
             const pushResponse = await fetch(url, {
                 method: "PUT",
-                headers: {
-                    "Authorization": `Bearer ${GITHUB_TOKEN}`,
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    message: "New Xmas Entry",
-                    content: updatedContent,
-                    sha: sha
-                })
+                headers: { "Authorization": `Bearer ${GITHUB_TOKEN}`, "Content-Type": "application/json" },
+                body: JSON.stringify({ message: "New Xmas Entry", content: updatedContent, sha: sha })
             });
 
-            if (pushResponse.ok) {
-                alert("Success! Your gift request has been recorded.");
-                document.getElementById('registryForm').reset();
-            } else {
-                alert("Error: Check your Token/Repo configuration.");
-            }
-        } catch (err) {
-            alert("Connection failed.");
-        } finally {
-            btn.innerText = "SUBMIT REGISTRY";
-            btn.disabled = false;
+            if (pushResponse.ok) { alert("Success! Recorded."); document.getElementById('registryForm').reset(); }
+            else { alert("Config Error."); }
+        } catch (err) { alert("Connection failed."); }
+        finally { btn.innerText = "SUBMIT REGISTRY"; btn.disabled = false; }
+    }
+
+    // Search Logic
+    function searchWinners() {
+        let input = document.getElementById("searchInput").value.toUpperCase();
+        let rows = document.getElementById("winnerBody").getElementsByTagName("tr");
+        for (let i = 0; i < rows.length; i++) {
+            let id = rows[i].getElementsByTagName("td")[0].textContent.toUpperCase();
+            let name = rows[i].getElementsByTagName("td")[1].textContent.toUpperCase();
+            rows[i].style.display = (id.includes(input) || name.includes(input)) ? "" : "none";
         }
     }
 
-    // Timer and Snow logic
+    // Timer & Snow logic (same as before)
     const target = new Date("Dec 25, 2025 00:00:00").getTime();
     setInterval(() => {
         const now = new Date().getTime();
@@ -207,7 +214,6 @@
     let particles = [];
     function init() {
         canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-        particles = [];
         for(let i=0; i<100; i++) particles.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*2+1, d:Math.random()*1});
     }
     function draw() {
@@ -219,7 +225,6 @@
         requestAnimationFrame(draw);
     }
     init(); draw();
-    window.addEventListener('resize', init);
 </script>
 
 </body>
