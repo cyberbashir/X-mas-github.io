@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect | Don Starr Bags</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --orange: #FF6B00; 
+            --black: #0A0A0A;  
+            --dark-gray: #151515;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { background-color: var(--black); color: var(--white); overflow-x: hidden; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: rgba(10, 10, 10, 0.98);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 8%; position: fixed; width: 100%; top: 0; z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+        .logo-area { display: flex; align-items: center; text-decoration: none; color: var(--white); }
+        .logo-area img { height: 35px; margin-right: 10px; }
+        .logo-area span { font-family: 'Playfair Display', serif; font-size: 16px; letter-spacing: 2px; font-weight: 700; }
+
+        /* --- CONTACT HEADER --- */
+        .contact-hero {
+            padding: 150px 8% 60px;
+            text-align: center;
+            background: linear-gradient(to bottom, #111, var(--black));
+        }
+        .contact-hero h1 { font-family: 'Playfair Display', serif; font-size: 50px; margin-bottom: 15px; }
+        .contact-hero p { color: var(--orange); letter-spacing: 5px; font-size: 12px; text-transform: uppercase; }
+
+        /* --- CONTACT GRID --- */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            padding: 0 8% 100px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-info h2 { font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 30px; color: var(--orange); }
+        
+        .info-card {
+            background: var(--dark-gray);
+            padding: 30px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--orange);
+        }
+        .info-card h3 { font-size: 11px; letter-spacing: 2px; color: #555; text-transform: uppercase; margin-bottom: 10px; }
+        .info-card p { font-size: 16px; font-weight: 300; line-height: 1.6; }
+
+        /* --- WHATSAPP BOX --- */
+        .wa-box {
+            background: #25D366; /* WhatsApp Green */
+            color: white;
+            padding: 40px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .wa-box:hover { transform: scale(1.02); background: #128C7E; }
+        .wa-box h2 { font-size: 20px; margin-bottom: 10px; }
+        .wa-box p { font-size: 13px; opacity: 0.9; }
+
+        /* --- MAP --- */
+        .map-wrapper {
+            grid-column: span 2;
+            height: 450px;
+            filter: grayscale(1) invert(1) contrast(1.2); /* Makes map look "Dark Mode" and cool */
+            border: 1px solid #222;
+        }
+
+        @media (max-width: 900px) {
+            .contact-container { grid-template-columns: 1fr; }
+            .map-wrapper { grid-column: span 1; height: 300px; }
+            .contact-hero h1 { font-size: 35px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo-area">
+            <img src="images/logo.jpeg" alt="Don Starr">
+            <span>DON STARR <b>BAGS</b></span>
+        </a>
+    </nav>
+
+    <header class="contact-hero">
+        <p>Get in Touch</p>
+        <h1>Connect with the <b>Elite.</b></h1>
+    </header>
+
+    <div class="contact-container">
+        <div class="contact-info">
+            <h2>Visit Our Studio</h2>
+            
+            <div class="info-card">
+                <h3>Location</h3>
+                <p>Kampala, Uganda<br>High-Street District, Boutique Plaza</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Hours</h3>
+                <p>Mon - Sat: 09:00 AM - 07:00 PM<br>Sun: By Appointment Only</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Email</h3>
+                <p>inquiries@donstarrbags.com</p>
+            </div>
+        </div>
+
+        <a href="https://wa.me/256700000000?text=Hello Don Starr, I would like to make an inquiry." class="wa-box">
+            <h2>Chat on WhatsApp</h2>
+            <p>Speak directly with our fashion consultants for orders and delivery details.</p>
+        </a>
+
+        <div class="map-wrapper">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.01851213346!2d32.520481!3d0.313611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbb6c8637c35d%3A0x6b5e0a6d2f3c7e4!2sKampala!5e0!3m2!1sen!2sug!4v1700000000000!5m2!1sen!2sug" 
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <footer style="padding: 40px; text-align: center; border-top: 1px solid #111; color: #444; font-size: 11px;">
+        &copy; 2026 DON STARR BAGS KAMPALA. LUXURY REDEFINED.
+    </footer>
+
+</body>
+</html>

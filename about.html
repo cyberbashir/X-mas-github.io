@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Heritage | Don Starr Bags</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --orange: #FF6B00; 
+            --black: #0A0A0A;  
+            --dark-gray: #111111;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { background-color: var(--black); color: var(--white); }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: rgba(10, 10, 10, 0.95);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 8%; position: fixed; width: 100%; top: 0; z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+        .logo-area { display: flex; align-items: center; text-decoration: none; color: var(--white); }
+        .logo-area img { height: 35px; margin-right: 10px; }
+        .logo-area span { font-family: 'Playfair Display', serif; font-size: 16px; letter-spacing: 2px; font-weight: 700; }
+
+        /* --- SPLIT LAYOUT --- */
+        .about-wrapper {
+            display: flex;
+            min-height: 100vh;
+            padding-top: 70px;
+        }
+
+        /* Fixed Left Side (Image) */
+        .about-image {
+            flex: 1;
+            position: sticky;
+            top: 70px;
+            height: calc(100vh - 70px);
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                        url('https://images.unsplash.com/photo-1539109132382-381bb3f1cff6?q=80&w=800');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Scrolling Right Side (Text) */
+        .about-text {
+            flex: 1;
+            padding: 100px 10%;
+            background: var(--black);
+        }
+
+        .tagline { color: var(--orange); font-size: 12px; letter-spacing: 5px; text-transform: uppercase; font-weight: 700; margin-bottom: 20px; display: block; }
+        .about-text h1 { font-family: 'Playfair Display', serif; font-size: 50px; margin-bottom: 40px; line-height: 1.1; }
+        .about-text h1 b { color: var(--orange); font-style: italic; }
+
+        .content-section { margin-bottom: 60px; }
+        .content-section h2 { font-size: 14px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; color: #444; }
+        .content-section p { font-size: 16px; line-height: 1.8; color: #bbb; font-weight: 300; margin-bottom: 20px; }
+
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; border-top: 1px solid #222; padding-top: 40px; }
+        .stat-item h3 { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--orange); }
+        .stat-item p { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #666; }
+
+        .cta-footer { margin-top: 50px; }
+        .btn-outline {
+            display: inline-block;
+            padding: 15px 40px;
+            border: 1px solid var(--orange);
+            color: var(--orange);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+        .btn-outline:hover { background: var(--orange); color: #000; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .about-wrapper { flex-direction: column; }
+            .about-image { position: relative; height: 400px; width: 100%; top: 0; }
+            .about-text { padding: 60px 8%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo-area">
+            <img src="images/logo.jpeg" alt="Don Starr">
+            <span>DON STARR <b>BAGS</b></span>
+        </a>
+    </nav>
+
+    <div class="about-wrapper">
+        <div class="about-image"></div>
+
+        <div class="about-text">
+            <span class="tagline">Established 2026</span>
+            <h1>The Story of <b>Don Starr.</b></h1>
+
+            <div class="content-section">
+                <h2>Our Vision</h2>
+                <p>Born in the heart of Kampala, Don Starr Bags was founded on a simple principle: Luxury should be a language spoken by everyone. We don’t just sell accessories; we curate confidence.</p>
+                <p>Every piece in our collection—from our signature orange-lined totes to our executive loafers—is hand-selected for the individual who demands excellence in every stitch.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>The Craft</h2>
+                <p>We source only the finest materials, ensuring that your Don Starr piece isn't just for today, but for a lifetime of elegance. Our designs blend international high-fashion trends with the bold spirit of the modern Ugandan lifestyle.</p>
+            </div>
+
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <h3>100+</h3>
+                    <p>Exclusive Designs</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Client Support</p>
+                </div>
+            </div>
+
+            <div class="cta-footer">
+                <a href="gallery.html" class="btn-outline">VIEW THE COLLECTION</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
